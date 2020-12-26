@@ -24,7 +24,6 @@
 #include<opencv2/features2d/features2d.hpp>
 #include <opencv2/video/tracking.hpp>
 
-#include"Viewer.h"
 #include"FrameDrawer.h"
 #include"Atlas.h"
 #include"LocalMapping.h"
@@ -34,7 +33,6 @@
 #include"KeyFrameDatabase.h"
 #include"ORBextractor.h"
 #include "Initializer.h"
-#include "MapDrawer.h"
 #include "System.h"
 #include "ImuTypes.h"
 
@@ -46,7 +44,6 @@
 namespace ORB_SLAM3
 {
 
-class Viewer;
 class FrameDrawer;
 class Atlas;
 class LocalMapping;
@@ -57,7 +54,7 @@ class Tracking
 {  
 
 public:
-    Tracking(System* pSys, ORBVocabulary* pVoc, FrameDrawer* pFrameDrawer, MapDrawer* pMapDrawer, Atlas* pAtlas,
+    Tracking(System* pSys, ORBVocabulary* pVoc, FrameDrawer* pFrameDrawer, Atlas* pAtlas,
              KeyFrameDatabase* pKFDB, const string &strSettingPath, const int sensor, const string &_nameSeq=std::string());
 
     ~Tracking();
@@ -77,7 +74,6 @@ public:
 
     void SetLocalMapper(LocalMapping* pLocalMapper);
     void SetLoopClosing(LoopClosing* pLoopClosing);
-    void SetViewer(Viewer* pViewer);
     void SetStepByStep(bool bSet);
 
     // Load new settings
@@ -257,9 +253,7 @@ protected:
     System* mpSystem;
     
     //Drawers
-    Viewer* mpViewer;
     FrameDrawer* mpFrameDrawer;
-    MapDrawer* mpMapDrawer;
     bool bStepByStep;
 
     //Atlas

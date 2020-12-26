@@ -82,8 +82,6 @@ public:
 
     bool isFinished();
 
-    Viewer* mpViewer;
-
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:
